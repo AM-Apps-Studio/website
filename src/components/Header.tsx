@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from "@/styles/Header.module.css";
 import logo from "../../assets/logo.png"
 import { Inter } from 'next/font/google'
+import { useRouter } from "next/router";
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -20,7 +21,7 @@ const menuEntries: MenuEntry[] = [
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
-
+  const router = useRouter()
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsSticky(true);
@@ -39,10 +40,8 @@ const Header = () => {
 
   return (
     <header className={`${styles.header} ${isSticky ? styles.sticky : ""}`}>
-      <div className={styles.logo}>
-        <Link href="/">
-            <Image src={logo} alt="Logo" fill={true}  />
-        </Link>
+      <div className={styles.logo} onClick={() => router.push('/')}>
+        <Image src={'/img/logo.png'} alt="Logo" fill={true}  />
       </div>
       <div className={styles.nav}>
         {menuEntries.map((entry) => (
