@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 import styles from "@/styles/Header.module.css";
-import logo from "../assets/img/logo.png"
-import { Inter } from 'next/font/google'
+import logo from "../assets/img/logo.png";
+import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
-const inter = Inter({ subsets: ['latin'] })
-
+const inter = Inter({ subsets: ["latin"] });
 
 interface MenuEntry {
   title: string;
@@ -21,7 +20,7 @@ const menuEntries: MenuEntry[] = [
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsSticky(true);
@@ -40,16 +39,16 @@ const Header = () => {
 
   return (
     <header className={`${styles.header} ${isSticky ? styles.sticky : ""}`}>
-      <div className={styles.logo} onClick={() => router.push('/')}>
-        <Image src={logo} alt="Logo" fill={true}  />
+      <div className={styles.logo} onClick={() => router.push("/")}>
+        <Image src={logo} alt="Logo" fill={true} />
       </div>
       <div className={styles.nav}>
         {menuEntries.map((entry) => (
-            <div className={styles.card} key={entry.title}>
-                <Link href={entry.path}>
-                    <span className={inter.className}>{entry.title}</span>
-                </Link>
+          <Link href={entry.path} key={entry.title}>
+            <div className={styles.card} >
+              <span className={inter.className}>{entry.title}</span>
             </div>
+          </Link>
         ))}
       </div>
     </header>
