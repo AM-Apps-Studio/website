@@ -1,0 +1,60 @@
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from 'next/image'
+import styles from "@/styles/Header.module.css";
+import logo from "../../assets/logo.png"
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
+
+
+interface MenuEntry {
+  title: string;
+  path: string;
+}
+
+const menuEntries: MenuEntry[] = [
+  { title: "Apps", path: "/apps" },
+  { title: "Games", path: "/games" },
+  { title: "About us", path: "/about" },
+];
+
+const Header = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
+
+  // Attach scroll event listener on mount
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <header className={`${styles.header} ${isSticky ? styles.sticky : ""}`}>
+      <div className={styles.logo}>
+        <Link href="/">
+            <Image src={logo} alt="Logo" fill={true}  />
+        </Link>
+      </div>
+      <div className={styles.nav}>
+        {menuEntries.map((entry) => (
+            <div className={styles.card} key={entry.title}>
+                <Link href={entry.path}>
+                    <span className={inter.className}>{entry.title}</span>
+                </Link>
+            </div>
+        ))}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
