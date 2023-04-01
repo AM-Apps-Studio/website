@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav {
+  display: flex;
+  max-height: 100px;
+}
+
+.logo {
+  position: relative;
+  object-fit: contain;
+  height: 45px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.logo img {
+  aspect-ratio: calc(200/175);
+}
+
+.card {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(var(--card-border-rgb), 0);
+  transition: border 500ms;
+}
+
+.card a {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card a {
+  font-weight: 600;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border: 2px solid rgba(var(--card-border-rgb), 0.8);
+    cursor: pointer 
+  }
+}
