@@ -2,17 +2,18 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Games.module.css";
 import { Inter } from 'next/font/google'
+import jugglemaster from '../assets/img/JuggleMaster.png'
 const inter = Inter({ subsets: ['latin'] })
 
 type GameEntry = {
   name: string;
-  image: string;
+  image: any;
   platforms: ("apple" | "android" | "MacOS")[];
 };
 const games: GameEntry[] = [
   {
     name: "JuggleMaster",
-    image: "/img/JuggleMaster.png",
+    image: jugglemaster,
     platforms: ["android"],
   },
 ];

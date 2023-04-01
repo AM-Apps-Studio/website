@@ -2,22 +2,24 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/About.module.css";
 import { Inter } from "next/font/google";
+import laptop from '../assets/img/laptop.png'
 const inter = Inter({ subsets: ["latin"] });
+
 
 type GameEntry = {
   name: string;
-  image: string;
+  image: any;
   link: string;
 };
 const apps: GameEntry[] = [
   {
     name: "M",
-    image: "/img/laptop.png",
+    image: laptop,
     link: "https://github.com/ochan12"
   },
   {
     name: "A",
-    image: "/img/laptop.png",
+    image: laptop,
     link: "https://github.com/AlexZayat"
   },
 ];

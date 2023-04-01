@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from 'next/image'
 import styles from "@/styles/Header.module.css";
-import logo from "../../assets/logo.png"
+import logo from "../assets/img/logo.png"
 import { Inter } from 'next/font/google'
 import { useRouter } from "next/router";
 const inter = Inter({ subsets: ['latin'] })
@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${isSticky ? styles.sticky : ""}`}>
       <div className={styles.logo} onClick={() => router.push('/')}>
-        <Image src={'/img/logo.png'} alt="Logo" fill={true}  />
+        <Image src={logo} alt="Logo" fill={true}  />
       </div>
       <div className={styles.nav}>
         {menuEntries.map((entry) => (
