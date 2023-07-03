@@ -1,0 +1,14 @@
+# App-ads.txt file for your mobile app
+# More info: https://iabtechlab.com/ads-txt/
+
+# Direct contact for app-ads.txt issues
+am.apps.studio@gmail.com
+
+# Default account ID for your app
+# Replace "your-app-id" with your actual app ID
+google.com, pub-3507918834376944, DIRECT, f08c47fec0942fa0
+
+# Additional accounts authorized to sell inventory in your app
+# Replace "partner-app-id" with the app ID of the authorized partner
+# partner-app-id, pub-9876543210987654, DIRECT
+
